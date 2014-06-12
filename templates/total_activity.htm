@@ -1,0 +1,26 @@
+
+<div  id='element' class="pure-control-group pure-form pure-form-aligned center-block" ng-show="tableShow">
+<!--		<ul >
+		<li  ng-repeat="act in activity ">
+			Date: {{ act.activity.date}}  {{ act.activity.exercise}} {{ act.activity.duration}} {{ act.activity.calories}}
+		</li>
+		</ul>
+-->		
+		<h4>Weekly Activity Report</h4>
+		<table ng-table class="pure-table">
+			<thead>
+				<tr >
+				<th ng-repeat="head in headings"> {{ head }} </th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="act in activity">
+					<td>{{act.activity.date}}</td>
+					<td>{{act.activity.exercise}}</td>
+					<td>{{act.activity.duration}}</td> 
+					<td>{{act.activity.calories.toFixed(0)}}</td>
+				</tr>
+			</tbody>
+		</table>
+		<span style="padding-top: 0.5em; font-size: 1.2em; font-weight: bold" class="navbar-right">Total Calories: {{ total.toFixed(0) }}</span>
+</div>

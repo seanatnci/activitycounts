@@ -1,0 +1,12 @@
+<h3>Profile</h3>
+<div  class="pure-control-group pure-form pure-form-stacked" id="element">
+		<h4>Enter Your Weight</h4>
+		<hr/>
+		<label for="stones">Stones</label>
+		<input id="stones" ng-model="stones" type="text">
+		<label for="pounds">Lbs</label>
+		<input id="pounds" ng-model="pounds" type="text">
+		<button class="pure-button pure-button-primary" ng-click="inPounds()" class="button">Save</button>
+		<br/>
+		<label >Your Weight in Lbs:<span ng-show="lbsDisplay"> {{ lbs}}</span></label>
+</div>
