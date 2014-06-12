@@ -12,7 +12,6 @@
 		<select id="activity" ng-model="activitySelected"
                 ng-options="opt as opt.label for opt in options" ng-disabled="allowInput">
         </select>
-            The value selected is {{ activitySelected.value }}.
 		<button ng-disabled="allowInput" class="pure-button pure-button-primary" ng-click="calcCalories()" class="button">Calculate</button>
 		<br/>
 		<label>Calories Burned: <span ng-show="caloriesDisplay">{{ calories.toFixed(0)}}</span></label>
