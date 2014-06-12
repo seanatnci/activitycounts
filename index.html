@@ -1,0 +1,65 @@
+<!doctype html>
+<html ng-app="myActivity">
+  <head>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular-route.js"></script>
+    <script src="js/main.js"></script>
+	<script src="js/controllers.js"></script>
+	<script src="js/services.js"></script>
+	<link type="text/css" rel="stylesheet" href="css/pure-min.css" />
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+		body {
+		  padding-top: 10px;
+		  background-color: #F5F5F5;
+		  font-size: 140%;
+		  font:normal normal normal 11px/18px 'Helvetica Neue',Arial,sans-serif;
+		}
+	.nav > li {
+		float:none;
+		display:inline-block;
+		*display:inline; /* Internet Explorer 7 compatibility */
+		*zoom:1;
+		vertical-align: top;
+	}
+	#element {
+    display: table;
+    margin: 0 auto;
+	}
+	#element p { padding-left: 3px;}
+	
+	#imageSpace { padding: 0.5em; height: 3.5em; width: 3.5em;
+				}
+	li {  line-height: 1.0; }
+	.headList { padding: 5px; }
+
+    </style>
+  </head>
+  <body>
+  
+	<header>
+			<nav class="navbar navbar-default">
+				<div class="container" ng-controller='navController'>
+					<div class="navbar-header">
+						<a style='font-size: 1.8em; padding: 5px; padding-top:10px;'
+						class="navbar-brand" href="#">Activity Counts</a>
+						<img id='imageSpace' src='./images/walking.png'/><img id='imageSpace' src='./images/running.png'/><img id='imageSpace' src='./images/cycling.png'/>
+						<img id='imageSpace' class="navbar-right " ng-click="menuToggle()" src='./images/menuicon.png'/>
+				
+					</div>
+					<div style="clear: both"></div>
+					<ul ng-show="navShow" class="nav navbar-nav navbar-left ">
+					<li><a class='navbar-brand' style="padding: 5px; " href="#AddProfile"> Profile </a></li>
+					<li><a class='navbar-brand' style="padding: 5px; padding-left: 20px;" href="#AddActivity"> Activity </a></li>
+					<li><a class='navbar-brand' style="padding: 5px; padding-left: 20px;" href="#TotalActivity"> Weekly </a></li>
+					</ul>
+				</div>
+			</nav>
+	</header>
+    <div >
+		<div ng-view ></div>
+    </div>
+        
+  </body>
+ </html>
+

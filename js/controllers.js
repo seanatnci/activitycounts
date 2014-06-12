@@ -42,9 +42,12 @@ appControllers.controller('navController', ['$scope', function($scope) {
 		}
 }]);
 appControllers.controller('SplashController', ['$scope', function($scope) {
+	   
 	   $scope.$on('sendMessage', function(e,message) {
 		$scope.message = message;
 	   });
+	   
+	   $scope.$broadcast('sendMessage', "Welcome");
 }]);
 
 appControllers.controller('CleanController', ['$scope','LS','ActivityStore', function($scope,LS,ActivityStore) {
