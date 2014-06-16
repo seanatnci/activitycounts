@@ -2,7 +2,7 @@ var appControllers = angular.module('myActivityControllers', []);
 
 appControllers.controller('WeightController', ['$scope','LS', function($scope,LS) {
 	var weight = LS.getData();
-	if (weight == null || weight == 0) {
+	if (weight == null || weight == 0 || weight === undefined || isNaN(weight)) {
 		$scope.stones = 0 ;
 		$scope.pounds = 0 ;
 		$scope.lbs = 0;
@@ -17,19 +17,28 @@ appControllers.controller('WeightController', ['$scope','LS', function($scope,LS
 			
 	$scope.inPounds = function() {
 		if (validate()) {
-		$scope.lbsDisplay = true;
-		$scope.lbs =  (parseInt($scope.stones * 14) + parseInt($scope.pounds));
-		LS.setData($scope.lbs);
+			$scope.lbsDisplay = true;
+			$scope.lbs =  (parseInt($scope.stones * 14) + parseInt($scope.pounds));
+			LS.setData($scope.lbs);
 		}
 		else {
-			alert("invalid number entered");
+			alert("invalid weight entered");
 			}
 	}
 	validate = function() {
-		if ($scope.pounds < 0 || $scope.pounds > 14 || $scope.stones < 5) 
-			return false;
+		if (IsNumeric($scope.pounds) && IsNumeric($scope.stones)) {
+			if (parseInt($scope.pounds) < 0 || parseInt($scope.pounds) > 14 
+				|| parseInt($scope.stones) < 5) 
+				return false;
+			else
+				return true;
+				}
 		else
-			return true;
+			return false;
+	}
+	
+	IsNumeric = function(data){
+		return parseFloat(data)==data;
 	}
 }]);
 appControllers.controller('navController', ['$scope', function($scope) {
@@ -60,9 +69,8 @@ appControllers.controller('TestDataController', ['$scope','LS','ActivityStore', 
 		ActivityStore.removeData();
 		var date = new Date();
 		var data = "";
-		var activity = "walking";
 		var duration = 180;
-		var calories = 300;
+		var calories = 0;
 
 		for (var i=0; i<12; i++){
 			if (i == 0) {
@@ -86,7 +94,7 @@ appControllers.controller('ActivityController', ['$rootScope','$scope','$locatio
 	$scope.showFields= false;
 	$scope.allowInput=false;
 	var weight = LS.getData();
-	if (weight == null || weight == 0) {
+	if (weight == null || weight == 0 || weight === undefined || isNaN(weight)) {
 		$scope.error = true;
 		$scope.errorMessage = "You must enter a profile before entering an activity"
 		return;
@@ -113,13 +121,14 @@ appControllers.controller('ActivityController', ['$rootScope','$scope','$locatio
 	
 	$scope.calcCalories = function() {
 		if (validate()) {
-			$scope.calories = MET.caloriesBurn(weight,$scope.activitySelected.value,$scope.levelSelected.value,$scope.duration);
+			var duration = parseFloat($scope.duration); // in case is a string eg. "160"
+			$scope.calories = MET.caloriesBurn(weight,$scope.activitySelected.value,$scope.levelSelected.value,duration);
 			$scope.caloriesDisplay = true;
-			//var date = (new Date()).toString().split(' ').splice(1,3).join(' ')
+			
 			var date = new Date();
 			var data = 	'{  "activity":	{ "exercise":' + '"' + $scope.activitySelected.value + '"' +
 							',"date":' + '"' + date + '"' +
-							',"duration":' + $scope.duration + 
+							',"duration":' + duration + 
 							',"calories":' + $scope.calories +
 						'}}'
 			
@@ -132,10 +141,13 @@ appControllers.controller('ActivityController', ['$rootScope','$scope','$locatio
 			}
 	}
 	validate = function() {
-		if ($scope.duration <= 0 ) 
-			return false;
-		else
+		if (IsNumeric($scope.duration)) 
 			return true;
+		else
+			return false;
+	}
+	IsNumeric = function(data){
+		return parseFloat(data)==data;
 	}
 }]);
 

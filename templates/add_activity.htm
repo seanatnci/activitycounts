@@ -1,5 +1,5 @@
 <div  id='element' ng-show="showFields" class="pure-control-group pure-form pure-form-stacked">
-		<h4>Enter Your Activity Details</h4>
+		<h3>Enter Your Activity Details</h3>
 		<hr/>
 		<label for="time">Duration</label>
 		<input id="time" ng-model="duration" type="text" ng-disabled="allowInput">
@@ -12,6 +12,7 @@
 		<select id="activity" ng-model="activitySelected"
                 ng-options="opt as opt.label for opt in options" ng-disabled="allowInput">
         </select>
+		<br/>
 		<button ng-disabled="allowInput" class="pure-button pure-button-primary" ng-click="calcCalories()" class="button">Calculate</button>
 		<br/>
 		<label>Calories Burned: <span ng-show="caloriesDisplay">{{ calories.toFixed(0)}}</span></label>
