@@ -1,9 +1,7 @@
 var appControllers = angular.module('myActivityControllers', []);
 
-appControllers.controller('WeightController', ['$rootScope','$scope','LS', function($rootScope,$scope,LS) {
-
+appControllers.controller('WeightController', ['$scope','LS', function($scope,LS) {
 	var weight = LS.getData();
-	$rootScope.navShow = false;
 	if (weight == null || weight == 0 || weight === undefined || isNaN(weight)) {
 		$scope.stones = 0 ;
 		$scope.pounds = 0 ;
@@ -43,18 +41,17 @@ appControllers.controller('WeightController', ['$rootScope','$scope','LS', funct
 		return parseFloat(data)==data;
 	}
 }]);
-appControllers.controller('navController', ['$scope','$rootScope', function($scope,$rootScope) {
-		$rootScope.navShow = false;
+appControllers.controller('navController', ['$scope', function($scope) {
+	   $scope.navShow = false;
 		$scope.menuToggle = function() {
-			if ( $rootScope.navShow)
-				$rootScope.navShow = false;
+			if ( $scope.navShow)
+				$scope.navShow = false;
 			else
-				$rootScope.navShow = true;
+				$scope.navShow = true;
 		}
 }]);
-appControllers.controller('SplashController', ['$rootScope','$scope', function($rootScope,$scope) {
+appControllers.controller('SplashController', ['$scope', function($scope) {
 	   
-	   $rootScope.navShow = false;
 	   $scope.$on('sendMessage', function(e,message) {
 		$scope.message = message;
 	   });
@@ -96,7 +93,6 @@ appControllers.controller('TestDataController', ['$scope','LS','ActivityStore', 
 appControllers.controller('ActivityController', ['$rootScope','$scope','$location','LS','MET','ActivityStore', function($rootScope,$scope,$location,LS,MET,ActivityStore) {
 	$scope.showFields= false;
 	$scope.allowInput=false;
-	$rootScope.navShow = false;
 	var weight = LS.getData();
 	if (weight == null || weight == 0 || weight === undefined || isNaN(weight)) {
 		$scope.error = true;
@@ -155,9 +151,8 @@ appControllers.controller('ActivityController', ['$rootScope','$scope','$locatio
 	}
 }]);
 
-appControllers.controller('TotalsController', ['$rootScope','$scope','ActivityStore', function($rootScope,$scope,ActivityStore) {
+appControllers.controller('TotalsController', ['$scope','ActivityStore', function($scope,ActivityStore) {
 
-	$rootScope.navShow = false;
 	var firstWD = function(date){
 			var day = date.getDay() || 7;  
 			if ( day !== 1 ) 
@@ -169,7 +164,6 @@ appControllers.controller('TotalsController', ['$rootScope','$scope','ActivitySt
 	var parsed= [];
 	var headingArray = [];
 	$scope.total = 0;
-	$scope.message = "";
 	var currentObj = {};
 	var firstWeekDay = firstWD(new Date());
 	var data = ActivityStore.getData(); // get exercise data from local storage via service
@@ -177,17 +171,15 @@ appControllers.controller('TotalsController', ['$rootScope','$scope','ActivitySt
 		var arr = data.split("},");
 		var firstWeekDay = firstWD(new Date());
 		for (var i=0; i < arr.length; i++) {
-			console.log(arr[i]);
 			if (i < (arr.length - 1))
 				currentObj = JSON.parse(arr[i] + '}');
 			else
 				currentObj = JSON.parse(arr[i]);
-			console.log(currentObj);
-			if (i==0) {				
-				for (var prop in currentObj.activity)
-					headingArray.push(prop);
-				$scope.headings = headingArray;
-			}
+				if (i==0) {				
+					for (var prop in currentObj.activity)
+						headingArray.push(prop);
+					$scope.headings = headingArray;
+				}
 			if ( (new Date(currentObj.activity.date)) >= firstWeekDay) {
 				currentObj.activity.date = currentObj.activity.date.toString().split(' ').splice(0,3).join(' ')
 				parsed.push(currentObj);
@@ -201,7 +193,6 @@ appControllers.controller('TotalsController', ['$rootScope','$scope','ActivitySt
 			$scope.tableShow = true;
 		}
 		
-	} else { $scope.message = "No Activity Registered!";}
-			
+	}
 	
 }]);

@@ -1,8 +1,13 @@
 <!doctype html>
 <html ng-app="myActivity">
   <head>
+	    <!-- Sets initial viewport load and disables zooming -->
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.min.js"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular-route.js"></script>
+	<script src="cordova.js"></script>
+    <script src="js/mobile.js"></script>
     <script src="js/main.js"></script>
 	<script src="js/controllers.js"></script>
 	<script src="js/services.js"></script>
@@ -21,7 +26,7 @@
 		  background-color: #F5F5F5;
 		  font-size: 140%;
 		  font:normal normal normal 16px/20px 'Trade Gothic Next W01', 'TradeGothic', sans-serif;
-<1--	font:normal normal normal 11px/18px 'Helvetica Neue',Arial,sans-serif; -->
+<!--	font:normal normal normal 11px/18px 'Helvetica Neue',Arial,sans-serif; -->
 		}
 	.nav > li {
 		float:none;
@@ -34,38 +39,89 @@
     display: table;
     margin: 0 auto;
 	}
-	p.splash {  padding: 3px; max-width: 425px; display: table; margin: 0 auto; background-color: #bbaa76;}
+	.menu:hover { background-color: #012d55 }
+	.splash {  padding: 3px; max-width: 425px; display: table; background-color: #bbaa76;}
 
 	#element h5 { padding-left: 2px; font-weight: bold;}
-	#imageSpace { padding: 0.5em; height: 3.5em; width: 3.5em;
-				}
-	li {  line-height: 1.0; }
+	.imageSpace { padding: 0.5em; height: 3.5em; width: 3.5em;}
 	
 	.borderr { border-right: solid 1px lightgrey; }
 	.headList { padding: 5px; }
 	
-    </style>
+	img#menuham:hover { cursor: pointer; cursor: hand;}
+	
+	ul.list-group { margin: 0;}
+
+	a#headshow { display:none }
+	
+	@media only screen and (max-width: 445px), only screen and (max-device-width: 445px) {
+		img.imageSpace{
+			float: left;
+		  }
+		img#menuham{
+			float: right;
+		  }
+		a#headdoshow { display: block;text-align: center; }
+		a#headdoshow:after { clear: both }
+	
+	}
+	@media (min-device-width: 480px) {
+		ul.navbar ,nav.navbar{
+			float: none;
+			padding: 0;
+			margin: 0;
+
+	  }
+	}
+	  @media (min-width: 768px) {
+	  .navbar .navbar-collapse {
+		padding: 0;
+		max-height: none;
+	  }
+	  ul.navbar ,nav.navbar{
+		float: none;
+		padding: 0;
+		margin: 0;
+
+	  }
+	 
+	  .navbar ul:not {
+		display: block;
+	  }
+	  .navbar li {
+		float: none;
+		display: block;
+		
+	  }
+	  .navbar li a {
+		padding-top: 10px;
+		padding-bottom: 10px;
+	  }
+	}
+  </style>
   </head>
   <body>
   
 	<header>
 			<nav class="navbar navbar-default">
 				<div class="container" ng-controller='navController'>
-					<div class="">
-						<a style='font-size: 1.6em; padding: 3px; padding-top:20px;'
-						class="navbar-brand" href="#">Activity Counts</a>
-						<img id='imageSpace' src='./images/walking.png'/><img id='imageSpace' src='./images/running.png'/><img id='imageSpace' src='./images/cycling.png'/>
-						<img id='imageSpace' class="navbar-right " ng-click="menuToggle()" src='./images/menuicon.png'/>
-				
-					</div>
+					
+						<a id="headdoshow" style=' text-decoration: none; font-size: 1.6em; padding: 3px; padding-top:20px;'
+						class="" href="#">Activity Counts</a>
+						
+						<img class='imageSpace' src='./images/walking.png'/><img class='imageSpace' src='./images/running.png'/><img class='imageSpace' src='./images/cycling.png'/>
+						<img id='menuham' style="float: right" class="" ng-click="menuToggle()" src='./images/menu.png'/>
+						
+					
 					<div style="clear: both"></div>
-					
-					<ul  ng-show="navShow" class="nav navbar-nav navbar-left ">
-					<li><a class='navbar-brand borderr' style="padding: 5px; " href="#AddProfile"> Profile </a></li>
-					<li><a class='navbar-brand borderr' style="padding: 5px; padding-left: 20px;" href="#AddActivity"> Activity </a></li>
-					<li><a class='navbar-brand borderl' style="padding: 5px; padding-left: 20px;" href="#TotalActivity"> Weekly </a></li>
+					<nav ng-show="navShow" class="navbar navbar-inverse" role="navigation">
+ 
+					<ul   class="list-group">
+					<li class='list-group-item'><a style="text-decoration: none; padding: 10px;" href="#AddProfile"> Profile </a></li>
+					<li class='list-group-item'><a style="text-decoration: none; padding: 10px;" href="#AddActivity"> Activity </a></li>
+					<li class='list-group-item'><a style="text-decoration: none; padding: 10px;" href="#TotalActivity"> Weekly </a></li>
 					</ul>
-					
+					</nav>
 				</div>
 			</nav>
 	</header>

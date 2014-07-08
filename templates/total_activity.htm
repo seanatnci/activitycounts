@@ -1,12 +1,8 @@
 
 <div  id='element' class="pure-control-group pure-form pure-form-aligned center-block" ng-show="tableShow">
-<!--		<ul >
-		<li  ng-repeat="act in activity ">
-			Date: {{ act.activity.date}}  {{ act.activity.exercise}} {{ act.activity.duration}} {{ act.activity.calories}}
-		</li>
-		</ul>
--->		
-		<h4>Weekly Activity Report</h4>
+
+		<h2>Weekly Activity Report</h2>
+		<p>{{message}}</p>
 		<table ng-table class="pure-table">
 			<thead>
 				<tr >
@@ -22,5 +18,5 @@
 				</tr>
 			</tbody>
 		</table>
-		<span style="padding-top: 0.5em; font-size: 1.2em; font-weight: bold" class="navbar-right">Total Calories: {{ total.toFixed(0) }}</span>
+		<p style="padding-top: 1.5em; padding-right: 3px; font-size: 1.2em; font-weight: bold; float: right" class="navbar-right">Total Calories: {{ total.toFixed(0) }}</p>
 </div>
