@@ -9,6 +9,7 @@ app.run(function($rootScope) {
 //Define Routing for app
 //Uri /AddNewOrder -> template add_order.html and Controller AddOrderController
 //Uri /ShowOrders -> template show_orders.html and Controller AddOrderController
+
 app.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider
