@@ -2,8 +2,10 @@ var appControllers = angular.module('myActivityControllers', []);
 
 appControllers.controller('WeightController', ['$rootScope','$scope','LS', function($rootScope,$scope,LS) {
 
-	var weight = LS.getData();
+	$scope.pageClass = 'page-weight';
 	$rootScope.navShow = false;
+	var weight = LS.getData()
+	
 	if (weight == null || weight == 0 || weight === undefined || isNaN(weight)) {
 		$scope.stones = 0 ;
 		$scope.pounds = 0 ;
@@ -14,7 +16,7 @@ appControllers.controller('WeightController', ['$rootScope','$scope','LS', funct
 		$scope.stones = parseInt(weight / 14) ;
 		$scope.pounds = (weight % 14) ;
 		$scope.lbs = weight;
-		$scope.lbsDisplay = false;
+		$scope.lbsDisplay = true;
 		}
 			
 	$scope.inPounds = function() {
@@ -55,6 +57,7 @@ appControllers.controller('navController', ['$scope','$rootScope', function($sco
 appControllers.controller('SplashController', ['$rootScope','$scope', function($rootScope,$scope) {
 	   
 	   $rootScope.navShow = false;
+	   $scope.pageClass = 'page-splash';
 	   $scope.$on('sendMessage', function(e,message) {
 		$scope.message = message;
 	   });
@@ -94,6 +97,7 @@ appControllers.controller('TestDataController', ['$scope','LS','ActivityStore', 
 }]);
 
 appControllers.controller('ActivityController', ['$rootScope','$scope','$location','LS','MET','ActivityStore', function($rootScope,$scope,$location,LS,MET,ActivityStore) {
+	$scope.pageClass = 'page-activity';
 	$scope.showFields= false;
 	$scope.allowInput=false;
 	$rootScope.navShow = false;
@@ -156,7 +160,7 @@ appControllers.controller('ActivityController', ['$rootScope','$scope','$locatio
 }]);
 
 appControllers.controller('TotalsController', ['$rootScope','$scope','ActivityStore', function($rootScope,$scope,ActivityStore) {
-
+	$scope.pageClass = 'page-totals';
 	$rootScope.navShow = false;
 	var firstWD = function(date){
 			var day = date.getDay() || 7;  

@@ -1,6 +1,6 @@
 function onDeviceReady() {
     // remember to install org.apache.cordova.statusbar
-    StatusBar.overlaysWebView(false);
+    // StatusBar.overlaysWebView(false);
 }
   
 document.addEventListener('deviceready', onDeviceReady, false);

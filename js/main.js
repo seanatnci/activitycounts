@@ -1,4 +1,4 @@
-var app = angular.module('myActivity', ['ngRoute',
+var app = angular.module('myActivity', ['ngRoute','ngAnimate',
 										'myActivityControllers',
 										'myActivityServices']);
 
