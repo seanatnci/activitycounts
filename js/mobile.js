@@ -1,6 +1,9 @@
 function onDeviceReady() {
     // remember to install org.apache.cordova.statusbar
     // StatusBar.overlaysWebView(false);
+	angular.element(document).ready(function() {
+		angular.bootstrap(document);
+	});
 }
   
 document.addEventListener('deviceready', this.onDeviceReady, false);
