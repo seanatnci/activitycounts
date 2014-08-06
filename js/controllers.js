@@ -24,6 +24,16 @@ appControllers.controller('WeightController', ['$rootScope','$scope','LS', funct
 			$scope.lbsDisplay = true;
 			$scope.lbs =  (parseInt($scope.stones * 14) + parseInt($scope.pounds));
 			LS.setData($scope.lbs);
+			BootstrapDialog.show({
+            message: 'Proceed to enter an Activity',
+            buttons: [ {
+                label: 'OK',
+                action: function(dialogItself){
+                    dialogItself.close();
+                }
+            }]
+        });
+        
 		}
 		else {
 			alert("invalid weight entered");
@@ -116,7 +126,7 @@ appControllers.controller('ActivityController', ['$rootScope','$scope','$locatio
 		activityTodate = "";
 	else
 		activityTodate = "," + activityTodate;
-	$scope.duration = 180;
+	$scope.duration = 0;
 	$scope.level = "low";
 	$scope.calories = 0;
 	$scope.options = MET.activityOptions();
@@ -149,8 +159,12 @@ appControllers.controller('ActivityController', ['$rootScope','$scope','$locatio
 			}
 	}
 	validate = function() {
-		if (IsNumeric($scope.duration)) 
-			return true;
+		if (IsNumeric($scope.duration)) {
+			if ($scope.duration > 0)
+				return true;
+			else
+				return false;
+			}
 		else
 			return false;
 	}

@@ -4,17 +4,17 @@
 		<label for="time">Duration</label>
 		<input id="time" ng-model="duration" type="text" ng-disabled="allowInput">
 		<label for="level" >Level</label>
-		<select id="level" ng-model="levelSelected"
+		<select id="level" data-native-menu="false" ng-model="levelSelected"
 				ng-options="level as level.label for level in levels"
 				ng-disabled="allowInput">
 		</select>
 		<label for="activity">Activity</label>
-		<select id="activity" ng-model="activitySelected"
+		<select id="activity" data-native-menu="false" ng-model="activitySelected"
                 ng-options="opt as opt.label for opt in options" ng-disabled="allowInput">
         </select>
 		<br/>
 		<button ng-disabled="allowInput" class="pure-button pure-button-primary" ng-click="calcCalories()" class="button">Calculate</button>
-		<br/>
+		<br/><br/>
 		<label>Calories Burned: <span ng-show="caloriesDisplay">{{ calories.toFixed(0)}}</span></label>
 </div>
 <div ng-show="error">

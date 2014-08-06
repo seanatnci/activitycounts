@@ -1,8 +1,8 @@
 /* PAGES (specific colors for each page)
 ============================================================================= */
-.page-weight 	{ background:#00D0BC; color:#00907c; }
-.page-activity 	{ background:#E59400; color:#a55400; }
-.page-totals 	{ background:#ffa6bb; color:#9e0000; }
+.page-weight 	{ background:#c4eeea; color:#00907c; }
+.page-activity 	{ background:#efce93  ; color:#a55400;}
+.page-totals 	{ background:#f8dde4; color:#9e0000; }
 .page-splash 	{ background:#grey; color: black; }
 /* ANIMATIONS
 ============================================================================= */

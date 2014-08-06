@@ -3,10 +3,10 @@
         xmlns:gap   = "http://phonegap.com/ns/1.0"
         id          = "com.phonegap.example"
         versionCode = "10" 
-        version     = "2.0.0" >
+        version     = "3.0.0" >
 
     <!-- versionCode is optional and Android only -->
-
+	<icon src="favicon.ico" />
     <name>Activity Counts Application</name>
 
     <description>
