@@ -6,7 +6,7 @@
         version     = "3.0.0" >
 
     <!-- versionCode is optional and Android only -->
-	<icon src="favicon.ico" />
+	<icon src="images/cycling.png" />
     <name>Activity Counts Application</name>
 
     <description>
