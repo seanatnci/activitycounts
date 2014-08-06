@@ -1,5 +1,6 @@
 var app = angular.module('myActivity', ['ngRoute','ngAnimate',
 										'myActivityControllers',
+										'myActivityDirectives',
 										'myActivityServices']);
 
 app.run(function($rootScope) {

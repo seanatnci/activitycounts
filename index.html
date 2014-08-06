@@ -12,24 +12,25 @@
     <script src="js/main.js"></script>
 	<script src="js/controllers.js"></script>
 	<script src="js/services.js"></script>
+	<script src="js/directives.js"></script>
 	<script type="text/javascript" src="http://fast.fonts.net/jsapi/7790d1f6-b57a-459c-b278-89e74c368c9d.js"></script>
 	<link type="text/css" rel="stylesheet" href="css/pure-min.css" />
     <link href="lib/bootstrap/bootstrap.min.css" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="css/style.css" />
 	<style>
-		html {
-			 text-rendering: optimizeLegibility;
-			-webkit-font-smoothing: antialiased;
-		}
+	html {
+		 text-rendering: optimizeLegibility;
+		-webkit-font-smoothing: antialiased;
+	}
+	
 		
-		
-		body {
-		  padding-top: 10px;
-		  background-color: #F5F5F5;
-		  font-size: 140%;
+	body {
+	  background-color: #F5F5F5;
+	  font-size: 140%;
 <!--		  font:normal normal normal 16px/20px 'Trade Gothic Next W01', 'TradeGothic', sans-serif; -->
-		  font:normal normal normal 16px/20px 'Helvetica Neue',Arial,sans-serif; -->
-		}
+	  font:normal normal normal 16px 'Helvetica Neue',Arial,sans-serif;
+	  line-height: 130%;
+	}
 	.nav > li {
 		float:none;
 		display:inline-block;
@@ -37,6 +38,9 @@
 		*zoom:1;
 		vertical-align: top;
 	}
+	
+	.select-reset { background: transparent !important; border: initial !important}
+	
 	#element {
     display: table;
     margin: 0 auto;
@@ -75,7 +79,7 @@
 
 	  }
 	}
-	  @media (min-width: 768px) {
+	@media (min-width: 768px) {
 	  .navbar .navbar-collapse {
 		padding: 0;
 		max-height: none;
