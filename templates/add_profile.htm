@@ -8,7 +8,8 @@
 		<label for="pounds">Lbs</label>
 		<input id="pounds" ng-model="pounds" type="number">
 		<br/>
-		<button class="pure-button pure-button-primary" ng-click="inPounds()" class="button">Save</button>
+		<button class="pure-button pure-button-primary" 
+				ng-click="myVar='save-weight';inPounds()" class="button">Save</button>
 		<br/><br/>
 		<label >Your Weight in Lbs:<span ng-show="lbsDisplay"> {{ lbs}}</span></label>
 </div>

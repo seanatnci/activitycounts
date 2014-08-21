@@ -1,9 +1,25 @@
 /* PAGES (specific colors for each page)
 ============================================================================= */
-.page-weight 	{ background:#c4eeea; color:#00907c; }
+.page-weight 	{ background:#c3e3e7; color:#00907c; }
 .page-activity 	{ background:#efce93  ; color:#a55400;}
-.page-totals 	{ background:#f8dde4; color:#9e0000; }
-.page-splash 	{ background:#grey; color: black; }
+.page-totals 	{ background:#ebf036; color:#black; }
+.page-splash 	{ background:#e6dfcc; color: black; }
+
+.save-weight  {
+   -webkit-animation: saveNfade 5s; /* Chrome, Safari, Opera */
+    animation: saveNfade 5s;
+}
+/* Chrome, Safari, Opera */
+@-webkit-keyframes saveNfade {
+    from {background: red;}
+    to {background: #c4eeea;}
+}
+
+/* Standard syntax */
+@keyframes saveNfade {
+    from {background: red;}
+    to {background: #c4eeea;}
+}
 /* ANIMATIONS
 ============================================================================= */
 
@@ -65,5 +81,115 @@
 /* contact ---------------------- */
 .page-totals.ng-leave      { transform-origin: 50% 50%; animation: rotateOutNewspaper .5s both ease-in; }
 .page-totals.ng-enter 		{ animation:slideInUp 0.5s both ease-in; }
+/* page style---------------------------*/
+
+nav > header {background-color: #f8f8f8 }
+	html {
+		 text-rendering: optimizeLegibility;
+		-webkit-font-smoothing: antialiased;
+	}
+	
+		
+	body {
+	  background-color: #F5F5F5;
+	  font-size: 140%;
+<!--		  font:normal normal normal 16px/20px 'Trade Gothic Next W01', 'TradeGothic', sans-serif; -->
+	  font:normal normal normal 16px 'Helvetica Neue',Arial,sans-serif;
+	  line-height: 130%;
+	}
+	.nav > li {
+		float:none;
+		display:inline-block;
+		*display:inline; /* Internet Explorer 7 compatibility */
+		*zoom:1;
+		vertical-align: top;
+		
+		margin-top: 0px;
+		margin-left: 0px;
+}
+	}
+	
+	.select-reset { border: none !important; border-radius: 0px !important}
+	
+	.browser-android {    
+		-webkit-appearance: listbox;
+		background-image: url(data:image/png;base64,R0lGODlhDQAEAIAAAAAAAP8A/yH5BAEHAAEALAAAAAANAAQAAAILhA+hG5jMDpxvhgIAOw==); /* a simple arrow img */
+		background-repeat: no-repeat;
+		background-position: right center;
+		padding-right: 20px;
+		}
+		
+	#element {
+    display: table;
+    margin: 0 auto;
+	}
+	.menu:hover { background-color: #012d55 }
+	.splash {  padding: 3px; max-width: 425px; background-color: #bbaa76;}
+
+	#element h5 { padding-left: 2px; font-weight: bold;}
+	.imageSpace { padding: 0.5em; height: 3.0em; width: 3.0em;}
+	
+	.borderr { border-right: solid 1px lightgrey; }
+	.headList { padding: 5px; }
+	
+	img#menuham:hover { cursor: pointer; cursor: hand;}
+	
+	ul.list-group { margin: 0;}
+
+	a#headdoshow { text-decoration: none; font-size: 1.6em; padding: 3px; padding-top:20px; }
+	
+	.saved { background-color: green}
+	
+	
+	
+	@media (max-width: 445px){
+		img.imageSpace{
+			float: left;
+		  }
+		img#menuham{
+			float: right;
+		  }
+		a#headdoshow { display: block;text-align: center; }
+		a#headdoshow:after { clear: both }
+		.nav-stacked li {margin-top: 0px !important;
+						margin-left: 0px;
+						border: 1px solid pink}
+	}
+	@media (min-device-width: 480px) {
+		ul.navbar ,nav.navbar{
+			float: none;
+			padding: 0;
+			margin: 0;
+	  }
+	  .nav-stacked li {margin-top: 0px !important;
+						margin-left: 0px;
+						border: 1px solid pink}
+	}
+	@media (min-width: 768px) {
+	  .navbar .navbar-collapse {
+		padding: 0;
+		max-height: none;
+	  }
+	  ul.navbar ,nav.navbar{
+		float: none;
+		padding: 0;
+		margin: 0;
+
+	  }
+	 
+	  .navbar ul:not {
+		display: block;
+	  }
+	  .navbar li {
+		float: none;
+		display: block;
+		border: 0;
+		
+	  }
+	  .navbar li a {
+		padding-top: 10px;
+		padding-bottom: 10px;
+	  }
+	}
 
 	

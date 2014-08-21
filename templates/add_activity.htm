@@ -1,19 +1,24 @@
-<div  id='element' ng-show="showFields" class="pure-control-group  pure-form pure-form-stacked">
+<div  id='element' 
+		
+		ng-show="showFields" class="pure-control-group  pure-form pure-form-stacked">
 		<h2>Activity Details</h2>
 		<hr/>
-		<label for="time">Duration (mins)</label>
-		<input id="time" ng-model="duration" type="number" ng-disabled="allowInput">
+		
+		<label for="activity">Activity</label>
+		<select id="activity" data-native-menu="false" ng-model="activitySelected"
+                ng-options="opt as opt.label for opt in options" ng-disabled="allowInput" class="browser-android" select-fix>
+        </select>
 		<label for="level" >Level</label>
 		<select id="level" data-native-menu="false" ng-model="levelSelected"
 				ng-options="level as level.label for level in levels"
 				ng-disabled="allowInput" class="browser-android">
 		</select>
-		<label for="activity">Activity</label>
-		<select id="activity" data-native-menu="false" ng-model="activitySelected"
-                ng-options="opt as opt.label for opt in options" ng-disabled="allowInput" class="select-reset" select-fix>
-        </select>
+		<label for="time">Duration (mins)</label>
+		<input id="time" ng-model="duration" type="number" ng-disabled="allowInput"/>
+	
 		<br/>
-		<button ng-disabled="allowInput" class="pure-button pure-button-primary" ng-click="calcCalories()" class="button">Calculate</button>
+		<button ng-disabled="allowInput" 
+				class="pure-button pure-button-primary" ng-click="calcCalories()" class="button">Calculate</button>
 		<br/><br/>
 		<label>Calories Burned: <span ng-show="caloriesDisplay">{{ calories.toFixed(0)}}</span></label>
 </div>

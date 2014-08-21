@@ -43,6 +43,8 @@ appServices.factory("ActivityStore", function($window, $rootScope) {
 appServices.factory("MET", function() {
 	var metDict = {
         walking: {low: 3.3,moderate: 4.0,high: 4.5},
+		swimming: {low: 5.3,moderate: 6.0,high: 9.8},
+		tennis: {low: 4.5,moderate: 6.0,high: 7.5},
         cycling: {low: 6.0,moderate: 8.0,high: 10},
         running: {low: 8,moderate: 10,high: 13.5}
 		};	  

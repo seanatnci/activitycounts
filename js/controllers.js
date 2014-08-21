@@ -2,7 +2,7 @@ var appControllers = angular.module('myActivityControllers', []);
 
 appControllers.controller('WeightController', ['$rootScope','$scope','LS', function($rootScope,$scope,LS) {
 
-	$scope.pageClass = 'page-weight';
+	$scope.$parent.pageClass = 'page-weight';
 	$rootScope.navShow = false;
 	var weight = LS.getData()
 	
@@ -55,6 +55,9 @@ appControllers.controller('WeightController', ['$rootScope','$scope','LS', funct
 		return parseFloat(data)==data;
 	}
 }]);
+appControllers.controller('pageController', ['$scope','$rootScope', function($scope,$rootScope) {
+		$scope.pageClass = "";
+}]);
 appControllers.controller('navController', ['$scope','$rootScope', function($scope,$rootScope) {
 		$rootScope.navShow = false;
 		$scope.menuToggle = function() {
@@ -67,7 +70,7 @@ appControllers.controller('navController', ['$scope','$rootScope', function($sco
 appControllers.controller('SplashController', ['$rootScope','$scope', function($rootScope,$scope) {
 	   
 	   $rootScope.navShow = false;
-	   $scope.pageClass = 'page-splash';
+	   $scope.$parent.pageClass = 'page-splash';
 	   $scope.$on('sendMessage', function(e,message) {
 		$scope.message = message;
 	   });
@@ -107,7 +110,7 @@ appControllers.controller('TestDataController', ['$scope','LS','ActivityStore', 
 }]);
 
 appControllers.controller('ActivityController', ['$rootScope','$scope','$location','LS','MET','ActivityStore', function($rootScope,$scope,$location,LS,MET,ActivityStore) {
-	$scope.pageClass = 'page-activity';
+	$scope.$parent.pageClass = 'page-activity';
 	$scope.showFields= false;
 	$scope.allowInput=false;
 	$rootScope.navShow = false;
@@ -174,7 +177,7 @@ appControllers.controller('ActivityController', ['$rootScope','$scope','$locatio
 }]);
 
 appControllers.controller('TotalsController', ['$rootScope','$scope','ActivityStore', function($rootScope,$scope,ActivityStore) {
-	$scope.pageClass = 'page-totals';
+	$scope.$parent.pageClass = 'page-totals';
 	$rootScope.navShow = false;
 	var firstWD = function(date){
 			var day = date.getDay() || 7;  

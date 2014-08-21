@@ -17,118 +17,22 @@
 	<link type="text/css" rel="stylesheet" href="css/pure-min.css" />
     <link href="lib/bootstrap/bootstrap.min.css" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="css/style.css" />
-	<style>
-	html {
-		 text-rendering: optimizeLegibility;
-		-webkit-font-smoothing: antialiased;
-	}
 	
-		
-	body {
-	  background-color: #F5F5F5;
-	  font-size: 140%;
-<!--		  font:normal normal normal 16px/20px 'Trade Gothic Next W01', 'TradeGothic', sans-serif; -->
-	  font:normal normal normal 16px 'Helvetica Neue',Arial,sans-serif;
-	  line-height: 130%;
-	}
-	.nav > li {
-		float:none;
-		display:inline-block;
-		*display:inline; /* Internet Explorer 7 compatibility */
-		*zoom:1;
-		vertical-align: top;
-	}
-	
-	.select-reset { border: none !important; border-radius: 0px !important}
-	
-	.browser-android {    
-		-webkit-appearance: listbox;
-		background-image: url(data:image/png;base64,R0lGODlhDQAEAIAAAAAAAP8A/yH5BAEHAAEALAAAAAANAAQAAAILhA+hG5jMDpxvhgIAOw==); /* a simple arrow img */
-		background-repeat: no-repeat;
-		background-position: right center;
-		padding-right: 20px;
-		}
-		
-	#element {
-    display: table;
-    margin: 0 auto;
-	}
-	.menu:hover { background-color: #012d55 }
-	.splash {  padding: 3px; max-width: 425px; background-color: #bbaa76;}
-
-	#element h5 { padding-left: 2px; font-weight: bold;}
-	.imageSpace { padding: 0.5em; height: 3.0em; width: 3.0em;}
-	
-	.borderr { border-right: solid 1px lightgrey; }
-	.headList { padding: 5px; }
-	
-	img#menuham:hover { cursor: pointer; cursor: hand;}
-	
-	ul.list-group { margin: 0;}
-
-	a#headshow { display:none }
-	
-	@media only screen and (max-width: 445px), only screen and (max-device-width: 445px) {
-		img.imageSpace{
-			float: left;
-		  }
-		img#menuham{
-			float: right;
-		  }
-		a#headdoshow { display: block;text-align: center; }
-		a#headdoshow:after { clear: both }
-	
-	}
-	@media (min-device-width: 480px) {
-		ul.navbar ,nav.navbar{
-			float: none;
-			padding: 0;
-			margin: 0;
-
-	  }
-	}
-	@media (min-width: 768px) {
-	  .navbar .navbar-collapse {
-		padding: 0;
-		max-height: none;
-	  }
-	  ul.navbar ,nav.navbar{
-		float: none;
-		padding: 0;
-		margin: 0;
-
-	  }
-	 
-	  .navbar ul:not {
-		display: block;
-	  }
-	  .navbar li {
-		float: none;
-		display: block;
-		
-	  }
-	  .navbar li a {
-		padding-top: 10px;
-		padding-bottom: 10px;
-	  }
-	}
-  </style>
   </head>
-  <body>
+  <body class="{{pageClass}}" ng-controller="pageController">
   
 	<header>
 			<nav class="navbar navbar-default">
 				<div class="container" ng-controller='navController'>
 					
-						<a id="headdoshow" style=' text-decoration: none; font-size: 1.6em; padding: 3px; padding-top:20px;'
-						class="" href="#">Activity Counts</a>
+						<a id="headdoshow" href="#">Activity Counts</a>
 						
 						<img class='imageSpace' src='./images/walking.png'/><img class='imageSpace' src='./images/running.png'/><img class='imageSpace' src='./images/cycling.png'/>
 						<img id='menuham' style="float: right" class="" ng-click="menuToggle()" src='./images/menu.png'/>
 						
 					
 					<div style="clear: both"></div>
-					<nav ng-show="navShow" class="" role="navigation">
+					<nav ng-cloak ng-show="navShow" class="" role="navigation">
  
 					<ul   class="nav nav-pills nav-stacked">
 					<li class=''><a style="text-decoration: none; padding: 10px;" href="#AddProfile"> Profile </a></li>
@@ -140,7 +44,7 @@
 			</nav>
 	</header>
     <div>
-		<div class="page {{pageClass}}" ng-view ></div>
+		<div  ng-class="myVar" ng-view ></div>
     </div>
         
   </body>
